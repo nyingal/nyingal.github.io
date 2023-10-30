@@ -14,7 +14,10 @@
 				height: 100%;
 			}
 			body {
-				background: black;
+				background-image: url('background.gif');
+				background-position: center;
+  				background-repeat: no-repeat;
+  				background-size: cover;
 				height: 100%;
 				margin: 0;
 				display: flex;
@@ -23,12 +26,22 @@
 			}
 		</style>
 		<script>
-			alert('Set your volume to 100%');
+			alert('set your volume to 100% and click on a square');
 			var found = 0;
+			var jump_scare = ['','man.mp3', 'woman.mp3', 'wolf.mp3','','','','','',''];
 			function delay(time) {
 				return new Promise(resolve => setTimeout(resolve, time));
 			}
+			function playJumpScare(){
+				let x = Math.floor((Math.random() * 9) + 1);
+				var audio = new Audio(jump_scare[x]);
+				audio.play();
+			}
 			async function showImage(index){
+				var audio = new Audio('background_music.mp3');
+				audio.volume = 0.3;
+				audio.play();
+				var is_jump_scare = 0;
 				if(found == 1){
 					if(confirm("You have found the second digit of the password. Continue?")){
 						window.location.href=('index2.html')
@@ -42,11 +55,16 @@
 				else{
 					var audio = new Audio('not_the_right_one.mp3');
 					audio.play();
+					is_jump_scare = 1;
 				}
 				var img = document.getElementById(index).src;
 				document.getElementById(index).src = '1989.jpg';
 				await delay(500);
 				document.getElementById(index).src = img;
+				if(is_jump_scare){
+					await delay(2000);
+					playJumpScare();
+				}
 			}
 		</script>
 	</head>
