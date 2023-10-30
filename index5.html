@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Thadingyut</title>
+		<style>
+			.container {
+				text-align: center;
+			}
+			.centered-div {
+				display: inline-block;
+				/* You can also set a width for the centered div if needed */
+			}
+			html {
+				height: 100%;
+			}
+			body {
+				background: black;
+				height: 100%;
+				margin: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+		<script>
+			var found = 0;
+			function delay(time) {
+				return new Promise(resolve => setTimeout(resolve, time));
+			}
+			async function showImage(index){
+				if(found == 1){
+					if(confirm("You have found the last two digits of the password. Continue?")){
+						window.location.href=('index.html')
+					}
+				}
+				if(index == 12){
+					var audio = new Audio('last_digits.mp3');
+					audio.play();
+					found = 1;
+				}
+				else{
+					var audio = new Audio('not_the_right_one.mp3');
+					audio.play();
+				}
+				var img = document.getElementById(index).src;
+				document.getElementById(index).src = '1989.jpg';
+				await delay(500);
+				document.getElementById(index).src = img;
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="centered-div">
+				<table>
+					<tr>
+						<td>
+							<img id="0" onclick="showImage(0);" style="width: 100px;" src="pic5/row-1-column-1.jpg"/>
+						</td>
+						<td>
+							<img id="1" onclick="showImage(1);" style="width: 100px;" src="pic5/row-1-column-2.jpg"/>
+						</td>
+						<td>
+							<img id="2" onclick="showImage(2);" style="width: 100px;" src="pic5/row-1-column-3.jpg"/>
+						</td>
+						<td>
+							<img id="3" onclick="showImage(3);" style="width: 100px;" src="pic5/row-1-column-4.jpg"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img id="4" onclick="showImage(4);" style="width: 100px;" src="pic5/row-2-column-1.jpg"/>
+						</td>
+						<td>
+							<img id="5" onclick="showImage(5);" style="width: 100px;" src="pic5/row-2-column-2.jpg"/>
+						</td>
+						<td>
+							<img id="6" onclick="showImage(6);" style="width: 100px;" src="pic5/row-2-column-3.jpg"/>
+						</td>
+						<td>
+							<img id="7" onclick="showImage(7);" style="width: 100px;" src="pic5/row-2-column-4.jpg"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img id="8" onclick="showImage(8);" style="width: 100px;" src="pic5/row-3-column-1.jpg"/>
+						</td>
+						<td>
+							<img id="9" onclick="showImage(9);" style="width: 100px;" src="pic5/row-3-column-2.jpg"/>
+						</td>
+						<td>
+							<img id="10" onclick="showImage(10);" style="width: 100px;" src="pic5/row-3-column-3.jpg"/>
+						</td>
+						<td>
+							<img id="11" onclick="showImage(11);" style="width: 100px;" src="pic5/row-3-column-4.jpg"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img id="12" onclick="showImage(12);" style="width: 100px;" src="pic5/row-4-column-1.jpg"/>
+						</td>
+						<td>
+							<img id="13" onclick="showImage(13);" style="width: 100px;" src="pic5/row-4-column-2.jpg"/>
+						</td>
+						<td>
+							<img id="14" onclick="showImage(14);" style="width: 100px;" src="pic5/row-4-column-3.jpg"/>
+						</td>
+						<td>
+							<img id="15" onclick="showImage(15);" style="width: 100px;" src="pic5/row-4-column-4.jpg"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img id="16" onclick="showImage(16);" style="width: 100px;" src="pic5/row-5-column-1.jpg"/>
+						</td>
+						<td>
+							<img id="17" onclick="showImage(17);" style="width: 100px;" src="pic5/row-5-column-2.jpg"/>
+						</td>
+						<td>
+							<img id="18" onclick="showImage(18);" style="width: 100px;" src="pic5/row-5-column-3.jpg"/>
+						</td>
+						<td>
+							<img id="19" onclick="showImage(19);" style="width: 100px;" src="pic5/row-5-column-4.jpg"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img id="20" onclick="showImage(20);" style="width: 100px;" src="pic5/row-6-column-1.jpg"/>
+						</td>
+						<td>
+							<img id="21" onclick="showImage(21);" style="width: 100px;" src="pic5/row-6-column-2.jpg"/>
+						</td>
+						<td>
+							<img id="22" onclick="showImage(22);" style="width: 100px;" src="pic5/row-6-column-3.jpg"/>
+						</td>
+						<td>
+							<img id="23" onclick="showImage(23);" style="width: 100px;" src="pic5/row-6-column-4.jpg"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
